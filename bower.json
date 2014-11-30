@@ -1,0 +1,34 @@
+{
+  "name": "oniricus-live-volao",
+  "version": "0.0.2",
+  "authors": [
+    "Rilke Petrosky Ulloa (XenoMuta) <xenomuta@gmail.com>"
+  ],
+  "description": "Oniricus: demo para Barcamp Santiago, R.D. 2014, Deshollywoodizando el Hacker",
+  "main": "index.html",
+  "keywords": [
+    "leapmotion",
+    "face",
+    "detection",
+    "cv",
+    "leap.js",
+    "p3.js",
+    "clmtracker.js"
+  ],
+  "license": "MIT",
+  "homepage": "https://oniricus.xenomuta.com/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "leapjs": "~0.6.2",
+    "leapjs-plugins": "~0.1.6",
+    "require.js": "*",
+    "jquery": "~2.1.1"
+  }
+}
