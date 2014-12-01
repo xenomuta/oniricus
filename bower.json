@@ -28,7 +28,6 @@
   "dependencies": {
     "leapjs": "~0.6.2",
     "leapjs-plugins": "~0.1.6",
-    "require.js": "*",
     "jquery": "~2.1.1"
   }
 }
