@@ -223,10 +223,16 @@ function vistaOniricus(cara) {
     }
     endShape(CLOSE);
 
-    if (activarHud) {
-      blendMode(ADD);
+    if (activarHud && cara.ojoDerecho.x > 50) {
+      blendMode(SOFT_LIGHT);
       imageMode(CENTER);
-      image(hud, cara.ojoDerecho.x, cara.ojoDerecho.y);
+      push();
+      // image(hud, cara.ojoDerecho.x, cara.ojoDerecho.y);
+      translate(cara.ojoDerecho.x, cara.ojoDerecho.y);
+      scale(.5, .5);
+      rotate((frameCount / 100) % 360);
+      image(hud, 0, 0);
+      pop();
       imageMode(CORNER);
       blendMode(BLEND);
       // feo y viejo
@@ -242,40 +248,40 @@ function vistaOniricus(cara) {
         }
         noFill();
         endShape(CLOSE);
-
-        beginShape();
-        strokeWeight(10);
-        stroke(color(128, 32, 8, 64));
-        for (var a = 0; a < 360; a += 20) {
-          var _a = 360 - (a + (Date.now() / 30)) % 360;
-          var _r = map(cara.ojoDerecho.d, 1, 14, 2.5, .1);
-          var x = cara.centro.x + (sin(_a * (PI / 180)) * td * _r * .85) - (td / 3);
-          var y = cara.centro.y + (cos(_a * (PI / 180)) * td * _r);
-          vertex(x, y);
-        }
-        endShape(CLOSE);
-
-        beginShape();
-        strokeWeight(3);
-        stroke(color(128, 32, 8, 240));
-        for (var a = 0; a < 360; a += 20) {
-          var _a = 360 - (a + (Date.now() / 20)) % 360;
-          var x = cara.centro.x + (sin(_a * (PI / 180)) * td * 1.5) - (td / 3);
-          var y = cara.centro.y + (cos(_a * (PI / 180)) * td * 1.8);
-          vertex(x, y);
-        }
-        endShape(CLOSE);
-        strokeWeight(1);
-        for (var a = 0; a < 360; a += 20) {
-          var _a = 360 - (a + (Date.now() / 20)) % 360;
-          stroke(color(128, 32, 8, map(Math.random(), 0, 1, 32, 64)));
-          var x = cara.centro.x + (sin(_a * (PI / 180)) * td * 1.5) - (td / 3);
-          var y = cara.centro.y + (cos(_a * (PI / 180)) * td * 1.8);
-          if (Math.random() > .7) {
-            line(x, y, cara.ojoDerecho.x, cara.ojoDerecho.y);
-          }
-        }
 */
+      beginShape();
+      strokeWeight(10);
+      stroke(color(128, 32, 8, 64));
+      for (var a = 0; a < 360; a += 20) {
+        var _a = 360 - (a + (Date.now() / 30)) % 360;
+        var _r = map(cara.ojoDerecho.d, 1, 14, 2.5, .1);
+        var x = cara.centro.x + (sin(_a * (PI / 180)) * td * _r * .85) - (td / 3);
+        var y = cara.centro.y + (cos(_a * (PI / 180)) * td * _r);
+        vertex(x, y);
+      }
+      endShape(CLOSE);
+
+      beginShape();
+      strokeWeight(3);
+      stroke(color(128, 32, 8, 240));
+      for (var a = 0; a < 360; a += 20) {
+        var _a = 360 - (a + (Date.now() / 20)) % 360;
+        var x = cara.centro.x + (sin(_a * (PI / 180)) * td * 1.5) - (td / 3);
+        var y = cara.centro.y + (cos(_a * (PI / 180)) * td * 1.8);
+        vertex(x, y);
+      }
+      endShape(CLOSE);
+      strokeWeight(1);
+      for (var a = 0; a < 360; a += 20) {
+        var _a = 360 - (a + (Date.now() / 20)) % 360;
+        stroke(color(128, 32, 8, map(Math.random(), 0, 1, 32, 64)));
+        var x = cara.centro.x + (sin(_a * (PI / 180)) * td * 1.5) - (td / 3);
+        var y = cara.centro.y + (cos(_a * (PI / 180)) * td * 1.8);
+        if (Math.random() > .7) {
+          line(x, y, cara.ojoDerecho.x, cara.ojoDerecho.y);
+        }
+      }
+
       // audio
       var l = mic.getLevel();
       var h = map(l, 0, 1, 0, 90);
@@ -413,13 +419,13 @@ function cambiarModo(_modo) {
   }
 }
 
-var errors = [];
-setInterval(function () {
-  var e;
-  while ((e = errors.shift())) {
-    console.error(e);
-  }
-}, 1000);
-window.onerror = function (err) {
-  errors.push(err);
-};
+// var errors = [];
+// setInterval(function () {
+//   var e;
+//   while ((e = errors.shift())) {
+//     console.error(e);
+//   }
+// }, 1000);
+// window.onerror = function (err) {
+//   errors.push(err);
+// };
